@@ -1,5 +1,7 @@
 package pt.alticelabs;
 
+import java.math.BigDecimal;
+
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -13,7 +15,7 @@ public class AlticciResource {
 
     @GET
     @Path("{n}")
-    public Long get(@PathParam("n") Long n) {
+    public BigDecimal get(@PathParam("n") Long n) {
         return alticciService.alticci(n);
     }
 
