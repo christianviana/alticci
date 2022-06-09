@@ -17,7 +17,7 @@ Este exercício usa o framework Java Quarkus: https://quarkus.io/
 
 	  
 ```shell script
-./mvnw compile quarkus:dev`
+./mvnw compile quarkus:dev
 ```
 Este comando executa a aplicação no modo desenvolvimento (dev mode).
 
