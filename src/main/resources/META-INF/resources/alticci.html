@@ -3,11 +3,13 @@
 <head>
     <meta charset="utf-8"/>
     <title>Serviço REST Alticci</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/wingcss/0.1.8/wing.min.css"/>
-    <!-- Load AngularJS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/wingcss/0.1.8/wing.min.css"/>    
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    
+    
     <script type="text/javascript">
-      var app = angular.module("Alticci", []);
+    
+    var app = angular.module("Alticci", []);
 
       app.controller("AlticciController", function ($scope, $http) {
 
@@ -46,15 +48,18 @@
       });
     </script>
 </head>
+
+
 <body ng-app="Alticci" ng-controller="AlticciController">
 
 <div class="container">
     <h2>Sequência de Alticci</h2>
 
     <form ng-submit="calc()">
+    
         <div class="row">
-            <div class="col-5"><input type="text" placeholder="N a calcular a(N)" ng-model="form.n" size="30"/></div>
-        <input type="submit" value="Calcular"/>
+            <div class="col-8"><input type="text" placeholder="N a calcular a(N)" ng-model="form.n" size="30"/></div>
+        	<div class="col-4"> <input type="submit" value="Calcular"/> </div>
         </div>        
         
         <div class="row" ng-if='entrada'>        	
@@ -62,8 +67,7 @@
             	<p>
             	O valor da sequência de Alticci para N={{ entrada }} é {{ resultado }}.
             	</p>
-            </div>
-            	 
+            </div>            	 
         </div>
         
     </form>
@@ -71,4 +75,6 @@
 </div>
 
 </body>
+
+
 </html>

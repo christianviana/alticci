@@ -11,7 +11,9 @@ import javax.enterprise.context.ApplicationScoped;
 public class AlticciService {
 
 	private Map<Long, BigDecimal> numbers = Collections.synchronizedMap(new LinkedHashMap<>());
-		
+
+	private BigDecimal zero = new BigDecimal(0);
+	private BigDecimal um = new BigDecimal(1);
 	
 	/**
 	 * Cálcula o número de Alticci a(n), colocando em cache no HashMap todos os valores 
@@ -25,11 +27,11 @@ public class AlticciService {
 			return result;
 		}
 		if (n == 0) {
-			return new BigDecimal(0);
+			return zero;
 		} else if (n == 1) {
-			return new BigDecimal(1);
+			return um;
 		} else if (n == 2) {
-			return new BigDecimal(1);
+			return um;
 		} else {
 			BigDecimal alt1 = numbers.get(n - 3);
 			if (alt1 == null) {
