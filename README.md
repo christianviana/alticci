@@ -1,15 +1,27 @@
 # Exercício Alticci 
 
+Este projeto usa o framework Java Quarkus: https://quarkus.io/
+
+## Pré-requisitos
+
+- JDK 11+ instalado com JAVA_HOME configurado
+- Apache Maven 3.8.1+
+
 
 ## Instruções para instalação e execução (em dev Mode)
 
-- Descompactar o arquivo do projeto alticci.zip na pasta de sua preferência
 
-- De dentro da pasta descompactada, executar o comando abaixo: 
+- Clonar o [repositório](https://github.com/christianviana/alticci) em sua máquina local.
 
+- Dentro do diretório raiz do repositório, executar o comando:
+
+	  
 ```shell script
-./mvnw compile quarkus:dev
+./mvnw compile quarkus:dev`
 ```
+Este comando executa a aplicação no modo desenvolvimento (dev mode).
+
+Criei uma [página simples](http://localhost:8080/alticci.html) usando uma versão antiga do AngularJS, apenas para fins de testes.
 
 ## Intruções para empacotar e executar a aplicação (opcional)
 
