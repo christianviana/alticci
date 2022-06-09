@@ -1,25 +1,30 @@
 # Exercício Alticci 
 
 
-## Instruções para execução (em dev Mode)
+## Instruções para instalação e execução (em dev Mode)
+
+- Descompactar o arquivo do projeto alticci.zip na pasta de sua preferência
+
+- De dentro da pasta descompactada, executar o comando abaixo: 
 
 ```shell script
 ./mvnw compile quarkus:dev
 ```
 
-## Packaging and running the application
+## Intruções para empacotar e executar a aplicação (opcional)
 
-The application can be packaged using:
+A aplicação pode ser empacotada usando:
 
 ```shell script
 ./mvnw package
 ```
-It produces the `quarkus-run.jar` file in the `target/quarkus-app/` directory.
-Be aware that it’s not an *über-jar* as the dependencies are copied into the `target/quarkus-app/lib/` directory.
 
-The application is now runnable using `java -jar target/quarkus-app/quarkus-run.jar`.
+O comando produz o arquivo `quarkus-run.jar` na pasta `target/quarkus-app/`.
+Este não é um *jar gordo*, pois as dependências estão `target/quarkus-app/lib/`.
 
-If you want to build an *über-jar*, execute the following command:
+A aplicação agora pode ser executada usando `java -jar target/quarkus-app/quarkus-run.jar`.
+
+Para criar um *jar gordo* contendo as dependências, execute o comando abaixo:
 
 ```shell script
 ./mvnw package -Dquarkus.package.type=uber-jar
