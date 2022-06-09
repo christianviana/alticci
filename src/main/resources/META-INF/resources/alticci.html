@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Serviço REST Alticci</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/wingcss/0.1.8/wing.min.css"/>
+    <!-- Load AngularJS -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script type="text/javascript">
+      var app = angular.module("Alticci", []);
+
+      app.controller("AlticciController", function ($scope, $http) {
+
+        //Inicializa página
+        $scope.resultado = "";
+        $scope.entrada = "";
+        
+        $scope.form = {
+          n: ""         
+        };
+
+        // calcula alticci
+        $scope.calc = function () {
+          $http({
+            method: "GET",
+            url: '/alticci/' + $scope.form.n
+          }).then(_success, _error);
+        };
+
+        function _refreshPageData(response) {          
+        	$scope.resultado  = response.data;     
+            $scope.entrada = $scope.form.n;
+        }
+
+        function _success(response) {
+          _refreshPageData(response);
+          $scope.form.n = ""; 
+        }
+
+        function _error(response) {
+          alert(response.data.message || response.statusText);
+          $scope.form.n = ""; 
+          $scope.entrada = "";
+        }
+   
+      });
+    </script>
+</head>
+<body ng-app="Alticci" ng-controller="AlticciController">
+
+<div class="container">
+    <h2>Sequência de Alticci</h2>
+
+    <form ng-submit="calc()">
+        <div class="row">
+            <div class="col-5"><input type="text" placeholder="N a calcular a(N)" ng-model="form.n" size="30"/></div>
+        <input type="submit" value="Calcular"/>
+        </div>        
+        
+        <div class="row" ng-if='entrada'>        	
+            <div class="col-12">
+            	<p>
+            	O valor da sequência de Alticci para N={{ entrada }} é {{ resultado }}.
+            	</p>
+            </div>
+            	 
+        </div>
+        
+    </form>
+
+</div>
+
+</body>
+</html>
