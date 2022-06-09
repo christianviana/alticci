@@ -1,12 +1,12 @@
 # Exercício Alticci 
 
-Este projeto usa o framework Java Quarkus: https://quarkus.io/
+Este exercício usa o framework Java Quarkus: https://quarkus.io/
 
 ## Pré-requisitos
 
 - JDK 11+ instalado com JAVA_HOME configurado
 - Apache Maven 3.8.1+
-
+- [Docker](https://www.docker.com) (opcional)
 
 ## Instruções para instalação e execução (em dev Mode)
 
@@ -23,7 +23,17 @@ Este comando executa a aplicação no modo desenvolvimento (dev mode).
 
 Criei uma [página simples](http://localhost:8080/alticci.html) usando uma versão antiga do AngularJS, apenas para fins de testes.
 
-## Intruções para empacotar e executar a aplicação (opcional)
+Alternativamente, para execução em contêiner docker, pode-se utilizar a implementação padrão fornecida pelo quarkus. As instruções para geração e execução da imagem encontram-se no arquivo `src/main/docker/Dockerfile.jvm`. 
+
+TLDR: A princípio, basta executar a sequência de comandos abaixo: 
+
+```shell script
+./mvnw package
+docker build -f src/main/docker/Dockerfile.jvm -t quarkus/alticci-jvm .
+docker run -i --rm -p 8080:8080 quarkus/alticci-jvm
+```
+
+## Instruções para empacotar e executar a aplicação (opcional)
 
 A aplicação pode ser empacotada usando:
 
